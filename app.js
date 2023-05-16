@@ -21,13 +21,13 @@ app.get( "/cart", ( req, res ) => {
 } );
 
 // define a route for the recipies shop page
-app.get( "/views/reci", ( req, res ) => {
+app.get( "/reci", ( req, res ) => {
     res.sendFile( __dirname + "/views/reci.html" );
 } );
 
 
 // define a route for the food shop page
-app.get( "/views/food", ( req, res ) => {
+app.get( "/food", ( req, res ) => {
     res.sendFile( __dirname + "/views/food.html" );
 } );
 
