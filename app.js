@@ -20,22 +20,17 @@ app.get( "/cart", ( req, res ) => {
     res.sendFile( __dirname + "/views/cart.html" );
 } );
 
-// define a route for the organic shop page
-app.get( "/views/organic", ( req, res ) => {
-    res.sendFile( __dirname + "/views/organic.html" );
+// define a route for the recipies shop page
+app.get( "/views/reci", ( req, res ) => {
+    res.sendFile( __dirname + "/views/reci.html" );
 } );
 
 
-// define a route for the pastry shop page
-app.get( "/views/pastry", ( req, res ) => {
-    res.sendFile( __dirname + "/views/pastry.html" );
+// define a route for the food shop page
+app.get( "/views/food", ( req, res ) => {
+    res.sendFile( __dirname + "/views/food.html" );
 } );
 
-
-// define a route for the recipies  page
-app.get( "/views/recipies", ( req, res ) => {
-    res.sendFile( __dirname + "/views/recipies.html" );
-} );
 
 // start the server
 app.listen( port, () => {
