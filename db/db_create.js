@@ -1,17 +1,12 @@
 const db = require("./db_connection");
 
-/**** Drop existing tables, if any ****/
-
 const drop_food_table_sql = "DROP TABLE IF EXISTS food;"
-
 db.execute(drop_food_table_sql);
 
 const drop_item_table_sql = "DROP TABLE IF EXISTS item;"
-
 db.execute(drop_item_table_sql);
 
 const drop_address_table_sql = "DROP TABLE IF EXISTS address;"
-
 db.execute(drop_address_table_sql);
 
 
