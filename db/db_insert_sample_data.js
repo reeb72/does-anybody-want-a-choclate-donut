@@ -62,6 +62,7 @@ db.execute(insert_address_sql, ['213 Wichka Terrace', 3]);
 db.execute(insert_food_sql, [5, 'Dairy']);
 db.execute(insert_food_sql, [6, 'Pastry']);
 db.execute(insert_food_sql, [7, 'Beverage']);
+db.execute(insert_food_sql, [8, 'Other']);
 
 //subjectId: 1 => 'Meats'
 db.execute(insert_item_sql, [4, 'Steamed Lamb', 2, 1, '2023-05-23', '2023-05-27', 'Cooked very well']);

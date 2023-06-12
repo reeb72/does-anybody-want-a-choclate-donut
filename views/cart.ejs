@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+
+    <!-- Materialize CSS and Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="stylesheets/style.css">
+
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <nav>
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo"><img src="./images/cakelogo.png" style="width: 30px;">
+                Ruby Grocery</a>
+            <ul class="right">
+                <li><a href="/"><i class="material-icons left">home</i> Home</a></li>
+                <li><a href="/cart"><i class="material-icons left">shopping_cart</i>Cart</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="center-align" style="margin-bottom: 20px; margin-top: 20px;">
+        <div class="container">
+            <div class="section" id="list">
+                <h1>Your Orders:</h1>
+                <table class="highlight">
+                    <thead>
+    
+                        <tr>
+                            <th>Food</th>
+                            <th>Category</th>
+                            <th>Quantity</th>
+                            <th>Address</th>
+                            <th></th>
+                        </tr>
+    
+                    </thead>
+                    <tbody>
+    
+                        <tr>
+                            <td>Banana</td>
+                            <td>Fruit</td>
+                            <td>2 Bunches</td>
+                            <td>345 Street Avenue</td>
+                            <td>
+                                <a class="btn-small waves-effect waves-light" href="/cart/detail">
+                                    <i class="material-icons right">edit</i>
+                                    Info/Edit
+                                </a>
+                                <a class="btn-small waves-effect waves-light red">
+                                    <i class="material-icons right">delete</i>
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <td>Carrot</td>
+                            <td>Vegetable</td>
+                            <td>18</td>
+                            <td>345 Street Avenue</td>
+                            <td>
+                                <a class="btn-small waves-effect waves-light" href="/cart/detail">
+                                    <i class="material-icons right">edit</i>
+                                    Info/Edit
+                                </a>
+                                <a class="btn-small waves-effect waves-light red">
+                                    <i class="material-icons right">delete</i>
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <td>Pizza</td>
+                            <td>Other</td>
+                            <td>1</td>
+                            <td>228 Montgomery Lane</td>
+                            <td>
+                                <a class="btn-small waves-effect waves-light" href="/cart/detail">
+                                    <i class="material-icons right">edit</i>
+                                    Info/Edit
+                                </a>
+                                <a class="btn-small waves-effect waves-light red">
+                                    <i class="material-icons right">delete</i>
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+    
+    
+                    </tbody>
+                </table>
+            </div>
+    
+            <div class="section" id="add">
+                <h2>Add an item:</h2>
+                <form id="addForm">
+                    <div class="row">
+                        <div class="input-field col s8">
+                            <input type="text" id="titleInput" name="title" class="validate" data-length="32" required>
+                            <label for="titleInput">Name:</label>
+                        </div>
+                        <div class="input-field col s4">
+                            <input type="number" id="QuantityInput" name="Quantity" class="validate" min=1 max=99 value=5>
+                            <label for="QuantityInput">Quantity:</label>
+                        </div>
+    
+                        <div class="input-field col s6">
+                            <select type="number" id="FoodGroupInput" name="FoodGroup" required>
+                                <option value="" disabled selected>Food Group</option>
+                                <option value=1>Meats</option>
+                                <option value=2>Fruits</option>
+                                <option value=3>Vegetables</option>
+                                <option value=4>Grainsf</option>
+                                <option value=5>Dairy</option>
+                                <option value=6>Pastry</option>
+                                <option value=7>Beverage</option>
+                                <option value=8>Other</option>
+                              </select>
+                              <label for="FoodGroupInput">Food Group:</label>
+                        </div>
+    
+                        <div class="input-field col s6">
+                            <input type="text" id="addyInput" name="addy" class="validate" data-length="50" required>
+                            <label for="titleInput">Address:</label>
+                        </div>
+    
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit">
+                        <i class="material-icons right">send</i>
+                        Confirm
+                    </button>
+                </form>
+            </div>
+        </div>
+    
+        <!-- Materialize JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+        <!-- Auto-initialize Materialize elements (Note - more specific initialization may be required for certain elements)-->
+        <script src="/scripts/materializeAutoInit.js"></script>
+    </div>
+
+
+
+
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Ruby Grocery</h5>
+                    <p class="grey-text text-lighten-4">This website aims to help you with your purchase of neccesary,
+                        ingredients however shipping may not be available to all locations. Please
+                        be careful of any websites that may pose to be as us, our website advocates for dolphins.
+                    </p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">A link that i need to update</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2023 Syed Co.
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/scripts/materializeAutoInit.js"></script>
+
+
+</html>

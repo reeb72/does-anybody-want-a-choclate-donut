@@ -36,6 +36,11 @@ const create_item_table_sql = `
             REFERENCES food (foodId)
             ON DELETE RESTRICT
             ON UPDATE CASCADE);
+         CONSTRAINT addressItem
+            FOREIGN KEY (addressId)
+            REFERENCES address (addressId)
+            ON DELETE RESTRICT
+            ON UPDATE CASCADE);
 `
 
 db.execute(create_item_table_sql);
@@ -47,11 +52,6 @@ const create_address_table_sql = `
         itemId INT NOT NULL,
         PRIMARY KEY (addressId),
         INDEX addressItem_idx (itemId ASC),
-        CONSTRAINT addressItem
-            FOREIGN KEY (itemId)
-            REFERENCES item (itemId)
-            ON DELETE RESTRICT
-            ON UPDATE CASCADE);
 `
 
 db.execute(create_address_table_sql);
