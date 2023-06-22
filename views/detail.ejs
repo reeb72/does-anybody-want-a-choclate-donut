@@ -10,13 +10,13 @@
     <!-- Materialize CSS and Icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
     <nav>
         <div class="nav-wrapper">
-            <a href="/" class="brand-logo"><img src="./images/cakelogo.png" style="width: 30px;">
+            <a href="/" class="brand-logo"><img src="/images/cakelogo.png" style="width: 30px;">
                 Ruby Grocery</a>
             <ul class="right">
                 <li><a href="/"><i class="material-icons left">home</i> Home</a></li>
@@ -25,9 +25,9 @@
         </div>
     </nav>
 
-    <div class="section flow-text" id="details">
-        <h1>Food inspect</h1>
-        <table>
+    <div class="section flow-text" id="details" style="margin: 0 20px 20px;">
+        <h1 class="center-align">Food Detail</h1>
+        <table class="highlight">
             <tr>
                 <th>Name:</th>
                 <td><%= item.itemName %></td>
@@ -64,14 +64,14 @@
             <i class="material-icons right">edit</i>
             Edit
         </a>
-        <a class="btn-large waves-effect waves-light red right">
+        <a class="btn-large waves-effect waves-light red right" href="/cart/<%= item.itemId %>/delete">
             <i class="material-icons right">delete</i>
-            Delete
+            Remove
         </a>
     </div>
 
 
-    <div class="modal" id="edit">
+    <div class="modal" id="edit" style="background-color: palevioletred;">
 
         <div class="modal-content">
 
@@ -79,16 +79,16 @@
             <form id="updateForm">
                 <div class="row">
                     <div class="input-field col s8">
-                        <input type="text" id="titleInput" name="title" class="validate" data-length="32" required value="<%=item.itemName%>">
-                        <label for="titleInput">Name:</label>
+                        <input style="color: white" type="text" id="titleInput" name="title" class="validate" data-length="32" required value="<%=item.itemName%>">
+                        <label style="color: white" for="titleInput">Name:</label>
                     </div>
-                    <div class="input-field col s4">
-                        <input type="number" id="QuantityInput" name="Quantity" class="validate" min=1 max=99 value=<%= item.quantity %>>
-                        <label for="QuantityInput">Quantity:</label>
+                    <div class="input-field col s4"> 
+                        <input style="color: white" type="number" id="QuantityInput" name="Quantity" class="validate" min=1 max=99 value=<%= item.quantity %>>
+                        <label style="color: white" for="QuantityInput">Quantity:</label>
                     </div>
 
                     <div class="input-field col s6">
-                        <select type="number" id="FoodGroupInput" name="FoodGroup" required>
+                        <select style="color: white" type="number" id="FoodGroupInput" name="FoodGroup" required>
                             <option value="" disabled selected>Food Group</option>
                             <option value=1 <% if (item.foodId == 1) { %> selected <% } %>>Meats</option>
                             <option value=2 <% if (item.foodId == 2) { %> selected <% } %>>Fruits</option>
@@ -99,28 +99,28 @@
                             <option value=7 <% if (item.foodId == 7) { %> selected <% } %>>Beverage</option>
                             <option value=8 <% if (item.foodId == 8) { %> selected <% } %>>Other</option>
                         </select>
-                        <label for="FoodGroupInput">Food Group:</label>
+                        <label style="color: white" for="FoodGroupInput">Food Group:</label>
                     </div>
 
                     <div class="input-field col s6">
-                        <input type="text" id="addyInput" name="addy" class="validate" data-length="50" required value = <%= item.address %>>
-                        <label for="titleInput">Address:</label>
+                        <input style="color: white" type="text" id="addyInput" name="addy" class="validate" data-length="50" required value = <%= item.address %>>
+                        <label style="color: white" for="titleInput">Address:</label>
                     </div>
 
                     <div class="input-field col s6">
-                        <input type="date" id="orderDateInput" name="orderDate" value=<%= item.orderDate %>>
-                        <label for="orderDateInput">Order Date:</label>
+                        <input style="color: white" type="date" id="orderDateInput" name="orderDate" value=<%= item.orderDate %>>
+                        <label style="color: white" for="orderDateInput">Order Date:</label>
                     </div>
 
                     <div class="input-field col s6">
-                        <input type="date" id="shipDateInput" name="shipDate" value=<%= item.shipDate %>>
-                        <label for="shipDateInput">Ship Date:</label>
+                        <input style="color: white" type="date" id="shipDateInput" name="shipDate" value=<%= item.shipDate %>>
+                        <label style="color: white" for="shipDateInput">Ship Date:</label>
                     </div>
 
                     <div class="input-field col s12">
-                        <textarea class="materialize-textarea" id="descriptionInput"
-                            name="description"><%= item.description %></textarea>
-                        <label for="descriptionInput">Detailed Description:</label>
+                        <textarea style="color: white"class="materialize-textarea" id="descriptionInput"
+                            name="description"><%=item.description%></textarea>
+                        <label style="color: white" for="descriptionInput">Detailed Description:</label>
                     </div>
 
                 </div>
@@ -128,11 +128,11 @@
             <!-- A section for the footer of the modal -->
             <div class="modal-footer">
                 <!-- Since the submit button is not within the form, it must have the form attribute specified-->
-                <button class="btn waves-effect waves-light " type="submit" form="updateForm">
+                <button class="btn waves-effect waves-light btm-btn" type="submit" form="updateForm">
                     <i class="material-icons right">send</i>
                     Confirm
                 </button>
-                <button class="modal-close waves-effect waves-green btn-flat">Cancel</button>
+                <button class="modal-close waves-effect waves-green btn-flat btm-btn">Cancel</button>
             </div>
 
         </div>

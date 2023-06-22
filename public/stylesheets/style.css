@@ -22,3 +22,13 @@ h3 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: larger;
 }
+
+#controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modal .modal-footer{
+    background-color: palevioletred;
+}

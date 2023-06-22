@@ -23,7 +23,17 @@ app.get("/", (req, res) => {
 });
 
 const read_cart_all_sql = `
-    SELECT * from item
+SELECT item.itemId as itemId, itemName, 
+quantity, foodGroup, food.foodId as foodId,
+address.addressId, address, DATE_FORMAT(orderdate, "%m/%d/%Y (%W)") AS orderDate, DATE_FORMAT(shipDate, "%m/%d/%Y (%W)") AS shipDate, description
+FROM item
+    JOIN food
+    ON item.foodId = food.foodId
+    JOIN addritem_xref
+    ON item.itemId = addritem_xref.itemId
+    JOIN address
+    ON addritem_xref.addressId = address.addressId
+ORDER BY item.itemId
 `
 
 // define a route for the cart page
@@ -36,7 +46,8 @@ app.get("/cart", (req, res) => {
             res.status(500).send(error)
         }
         else {
-            res.send(results);
+            let data = { itemlist: results };
+            res.render('cart', data);
         }
     })
 });
@@ -44,12 +55,14 @@ app.get("/cart", (req, res) => {
 const read_cart_detail_sql = `
 SELECT item.itemId as itemId, itemName, 
        quantity, foodGroup, food.foodId as foodId,
-       addressId, address, orderDate, shipDate, description
+       address.addressId, address, DATE_FORMAT(orderdate, "%m/%d/%Y (%W)") AS orderDate, DATE_FORMAT(shipDate, "%m/%d/%Y (%W)") AS shipDate, description
 FROM item
     JOIN food
     ON item.foodId = food.foodId
+    JOIN addritem_xref
+    ON item.itemId = addritem_xref.itemId
     JOIN address
-    ON item.itemId = address.itemId
+    ON addritem_xref.addressId = address.addressId
 WHERE item.itemId = ?
 `
 
@@ -65,6 +78,23 @@ app.get("/cart/:id", (req, res) => {
         else {
             let data = { item: results[0] }; // results is still an array, get first (only) element
             res.render('detail', data);
+        }
+    });
+});
+
+const delete_item_sql = `
+    DELETE 
+    FROM item
+    WHERE itemId = ?
+`
+app.get("/cart/:id/delete", ( req, res ) => {
+    db.execute(delete_item_sql, [req.params.id], (error, results) => {
+        if (DEBUG)
+            console.log(error ? error : results);
+        if (error)
+            res.status(500).send(error); //Internal Server Error
+        else {
+            res.redirect("/cart");
         }
     });
 });

@@ -10,7 +10,7 @@
     <!-- Materialize CSS and Icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
 
 </head>
 
@@ -18,7 +18,7 @@
     <!-- Nav Bar -->
     <nav>
         <div class="nav-wrapper">
-            <a href="/" class="brand-logo"><img src="./images/cakelogo.png" style="width: 30px;">
+            <a href="/" class="brand-logo"><img src="/images/cakelogo.png" style="width: 30px;">
                 Ruby Grocery</a>
             <ul class="right">
                 <li><a href="/"><i class="material-icons left">home</i> Home</a></li>
@@ -44,59 +44,24 @@
     
                     </thead>
                     <tbody>
-    
+                        <% for (let i = 0; i < itemlist.length; i++) { %>
                         <tr>
-                            <td>Banana</td>
-                            <td>Fruit</td>
-                            <td>2 Bunches</td>
-                            <td>345 Street Avenue</td>
+                            <td><%= itemlist[i].itemName %></td>
+                            <td><%= itemlist[i].foodGroup %></td>
+                            <td><%= itemlist[i].quantity%></td>
+                            <td><%= itemlist[i].address %></td>
                             <td>
-                                <a class="btn-small waves-effect waves-light" href="/cart/detail">
+                                <a class="btn-small waves-effect waves-light" href="/cart/<%= itemlist[i].itemId %>">
                                     <i class="material-icons right">edit</i>
-                                    Info/Edit
+                                    Edit
                                 </a>
-                                <a class="btn-small waves-effect waves-light red">
+                                <a class="btn-small waves-effect waves-light red" href="/cart/<%= itemlist[i].itemId %>/delete">
                                     <i class="material-icons right">delete</i>
-                                    Delete
+                                    Remove
                                 </a>
                             </td>
                         </tr>
-    
-                        <tr>
-                            <td>Carrot</td>
-                            <td>Vegetable</td>
-                            <td>18</td>
-                            <td>345 Street Avenue</td>
-                            <td>
-                                <a class="btn-small waves-effect waves-light" href="/cart/detail">
-                                    <i class="material-icons right">edit</i>
-                                    Info/Edit
-                                </a>
-                                <a class="btn-small waves-effect waves-light red">
-                                    <i class="material-icons right">delete</i>
-                                    Delete
-                                </a>
-                            </td>
-                        </tr>
-    
-                        <tr>
-                            <td>Pizza</td>
-                            <td>Other</td>
-                            <td>1</td>
-                            <td>228 Montgomery Lane</td>
-                            <td>
-                                <a class="btn-small waves-effect waves-light" href="/cart/detail">
-                                    <i class="material-icons right">edit</i>
-                                    Info/Edit
-                                </a>
-                                <a class="btn-small waves-effect waves-light red">
-                                    <i class="material-icons right">delete</i>
-                                    Delete
-                                </a>
-                            </td>
-                        </tr>
-    
-    
+                        <% } %>
                     </tbody>
                 </table>
             </div>
