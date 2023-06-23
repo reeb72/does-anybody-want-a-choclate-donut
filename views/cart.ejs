@@ -68,24 +68,24 @@
     
             <div class="section" id="add">
                 <h2>Add an item:</h2>
-                <form id="addForm">
+                <form id="addForm" method="post" action="/cart">
                     <div class="row">
                         <div class="input-field col s8">
-                            <input type="text" id="titleInput" name="title" class="validate" data-length="32" required>
+                            <input type="text" id="titleInput" name="itemName" class="validate" data-length="32" required>
                             <label for="titleInput">Name:</label>
                         </div>
                         <div class="input-field col s4">
-                            <input type="number" id="QuantityInput" name="Quantity" class="validate" min=1 max=99 value=5>
+                            <input type="number" id="QuantityInput" name="quantity" class="validate" min=1 max=99 value=5>
                             <label for="QuantityInput">Quantity:</label>
                         </div>
     
                         <div class="input-field col s6">
-                            <select type="number" id="FoodGroupInput" name="FoodGroup" required>
+                            <select type="number" id="FoodGroupInput" name="foodGroup" required>
                                 <option value="" disabled selected>Food Group</option>
                                 <option value=1>Meats</option>
                                 <option value=2>Fruits</option>
                                 <option value=3>Vegetables</option>
-                                <option value=4>Grainsf</option>
+                                <option value=4>Grains</option>
                                 <option value=5>Dairy</option>
                                 <option value=6>Pastry</option>
                                 <option value=7>Beverage</option>
@@ -95,7 +95,7 @@
                         </div>
     
                         <div class="input-field col s6">
-                            <input type="text" id="addyInput" name="addy" class="validate" data-length="50" required>
+                            <input type="text" id="addyInput" name="address" class="validate" data-length="50" required>
                             <label for="titleInput">Address:</label>
                         </div>
     

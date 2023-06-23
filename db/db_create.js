@@ -12,6 +12,7 @@ db.execute(drop_address_table_sql);
 const drop_food_table_sql = "DROP TABLE IF EXISTS food;"
 db.execute(drop_food_table_sql);
 
+
 const create_food_table_sql = `
     CREATE TABLE food (
         foodId INT NOT NULL AUTO_INCREMENT,
@@ -44,7 +45,6 @@ const create_address_table_sql = `
     CREATE TABLE address (
         addressId INT NOT NULL AUTO_INCREMENT,
         address VARCHAR(45) NOT NULL,
-        itemId INT NOT NULL,
         PRIMARY KEY (addressId));
 `
 

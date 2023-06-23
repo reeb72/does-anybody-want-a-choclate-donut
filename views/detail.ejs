@@ -76,19 +76,19 @@
         <div class="modal-content">
 
             <h2>Edit item:</h2>
-            <form id="updateForm">
+            <form id="updateForm" method="post" action="/cart/<%= item.itemId %>">
                 <div class="row">
                     <div class="input-field col s8">
-                        <input style="color: white" type="text" id="titleInput" name="title" class="validate" data-length="32" required value="<%=item.itemName%>">
+                        <input style="color: white" type="text" id="titleInput" name="itemName" class="validate" data-length="32" required value="<%=item.itemName%>">
                         <label style="color: white" for="titleInput">Name:</label>
                     </div>
                     <div class="input-field col s4"> 
-                        <input style="color: white" type="number" id="QuantityInput" name="Quantity" class="validate" min=1 max=99 value=<%= item.quantity %>>
+                        <input style="color: white" type="number" id="QuantityInput" name="quantity" class="validate" min=1 max=99 value=<%= item.quantity %>>
                         <label style="color: white" for="QuantityInput">Quantity:</label>
                     </div>
 
                     <div class="input-field col s6">
-                        <select style="color: white" type="number" id="FoodGroupInput" name="FoodGroup" required>
+                        <select style="color: white" type="number" id="FoodGroupInput" name="foodGroup" required>
                             <option value="" disabled selected>Food Group</option>
                             <option value=1 <% if (item.foodId == 1) { %> selected <% } %>>Meats</option>
                             <option value=2 <% if (item.foodId == 2) { %> selected <% } %>>Fruits</option>
@@ -103,7 +103,7 @@
                     </div>
 
                     <div class="input-field col s6">
-                        <input style="color: white" type="text" id="addyInput" name="addy" class="validate" data-length="50" required value = <%= item.address %>>
+                        <input style="color: white" type="text" id="addyInput" name="address" class="validate" data-length="50" required value = <%= item.address %>>
                         <label style="color: white" for="titleInput">Address:</label>
                     </div>
 
